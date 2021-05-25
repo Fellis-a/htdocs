@@ -19,14 +19,18 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');
 Route::get('/teacher', function () {
     return view('teacher');
 });
-Route::get('/authorization', function () {
-    return view('authorization');
-})->name('authorization');
-Route::get('/registration', function () {
-    return view('registration');
-})->name('registration');
 
+Route::get('/{lang}', function ($lang) {
+    App::setlocale($lang);
+    return view('home');
+});
+
+
+Route::view('home', 'home')->middleware('auth');
 Route::post('/authorization', [AuthorizationController::class, 'submitAuth'])->name('authorization');
