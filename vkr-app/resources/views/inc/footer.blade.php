@@ -12,7 +12,7 @@
 
             </div>
           <div class="p-2 bd-highlight ml-5 pl-5">
-            <h5>admin@mail.ru</h5>
+            <h4>admin@mail.ru</h4>
             <ul class="list-unstyled text-small">
               <li><a class="text-muted" href="#">Написать</a></li>
             </ul>

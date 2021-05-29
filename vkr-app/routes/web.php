@@ -23,8 +23,8 @@ Route::get('/admin', function () {
     return view('admin');
 })->name('admin');
 Route::get('/teacher', function () {
-    return view('teacher');
-});
+    return view('teacherView');
+})->name('teacher');
 
 Route::get('/{lang}', function ($lang) {
     App::setlocale($lang);
