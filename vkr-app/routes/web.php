@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Pagination;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,17 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+   $vkrs = DB::table('vkrs')->get();
+  return view('home',['vkrs' => $vkrs]);
 })->name('home');
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');
+Route::get('/search', function () {
+    return view('search');
+})->name('search');
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');
 Route::get('/teacher', function () {
     return view('teacherView');
 })->name('teacher');
+
+//Route::get('/', [Pagination::class, 'vkr']);
 
 Route::get('/{lang}', function ($lang) {
     App::setlocale($lang);

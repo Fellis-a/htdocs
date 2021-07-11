@@ -59,6 +59,9 @@
 
   </div>
   </div>
+  @section('pagination')
+
+
   <div class="row mt-5 mb-5">
     <div class="col mt-5">
       <div class="table-responsive">
@@ -74,73 +77,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                @if(Request::is('/search'))
+                @section('search')
+                @endif
 
-                  <td>1</td>
-                  <td>Экспертная система для оценки пользовательского интерфейса</td>
-                  <td>АСУб</td>
-                  <td>2020</td>
-                  <td><a href="#">Серышева Ирина Анатольевна</a></td>
-                  <td>libero</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Разработка системы поддержки обращений граждан в ОПФР по Иркутской области</td>
-                  <td>ЭВМб</td>
-                  <td>2019</td>
-                  <td><a href="#">Аршинский Вадим Леонидович</a></td>
-                    <td>Asterisk 1.1, CMU Sphinx, CMU CLMTK, Python</td>
-                </tr>
-                <tr>
-
-                  <td>3</td>
-                  <td>Разработка информационной системы диспетчеризации крупногабаритного груза</td>
-                  <td>ИСТбп</td>
-                  <td>2020</td>
-                  <td><a href="#">Серышева Ирина Анатольевна</a></td>
-                  <td>Java EE, Spring, PostgreSQL,OpenStreetMAP</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Применение методов прогнозной аналитики в LMS moodle</td>
-                  <td>ЭВМб</td>
-                  <td>2019</td>
-                  <td><a href="#">Бучнев Олег Сергеевич</a></td>
-                  <td>Moodle</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Разработка принципов построения базы данных горно-геологического назначения</td>
-                  <td>АСУб</td>
-                  <td>2018</td>
-                  <td><a href="#">Серышева Ирина Анатольевна</a></td>
-                  <td>Android, Micromine</td>
-                </tr>
-
-                <tr>
-                  <td>6</td>
-                  <td>Прогнозирование увольнений работников организации на основе информации в корпоративной системе</td>
-                  <td>ИСМб</td>
-                  <td>2019</td>
-                  <td><a href="#">Бучнев Олег Сергеевич</a></td>
-                  <td>CatBoost, React, Redux, webpack, Java, Spring, Python, PostgreSQ</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>Разработка информационной платформы сетевого анализа социальных взаимосвязей в предварительном следствии</td>
-                  <td>ИСМб</td>
-                  <td>2020</td>
-                  <td><a href="#">Серышева Ирина Анатольевна</a></td>
-                  <td>Python, NetworkX, XML</td>
-                </tr>
-                <tr>
-                  <td>8</td>
-                  <td>Технологии и средства 3D визуализации в исследованиях энергетики</td>
-                  <td>ИСТбп</td>
-                  <td>2020</td>
-                  <td><a href="#">Григорьев Станислав Валентинович</a></td>
-                  <td></td>
-                </tr>
+                @yield('homeContent')
 
               </tbody>
             </table>
@@ -148,4 +89,5 @@
 
     </div>
   </div>
+
 </div>

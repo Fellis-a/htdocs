@@ -1,4 +1,4 @@
-@section('contantteacher')
+@section('contentteacher')
 
 <div class="container mt-1">
   <div class="row">
@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-2 mt-4">
 
-      <button type="button" class="btn btn-lg btn-block btn-outline-primary round-3">< На главную</button>
+      <button type="button" class="btn btn-lg btn-block btn-outline-primary round-3" action="{{ url('/') }}">< На главную</button>
     </div>
     <div class="col-5 mt-4"></div>
 
