@@ -8,6 +8,6 @@ use App\Http\Requests\ContactRequest;
 class AuthorizationController extends Controller{
 
     public function submitAuth(ContactRequest $request){
-      protected $redirectTo = '/teacherView';
+      protected $redirectTo = '/user/teacherView';
     }
 }

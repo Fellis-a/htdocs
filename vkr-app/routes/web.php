@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pagination;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VkrController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,30 +16,42 @@ use App\Http\Controllers\Pagination;
 |
 */
 
-Route::get('/', function () {
-   $vkrs = DB::table('vkrs')->get();
-  return view('home',['vkrs' => $vkrs]);
-})->name('home');
+Route::get('/', [VkrController::class, 'index']
+  //return view('index',[VkrController::class, 'index']);
+  //$vkrs = DB::table('vkrs')->get();
+
+)->name('home');
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');
 Route::get('/search', function () {
-    return view('search');
+    return view('home.search');
 })->name('search');
-Route::get('/admin', function () {
-    return view('admin');
-})->name('admin');
+
 Route::get('/teacher', function () {
-    return view('teacherView');
+    return view('user.teacherView');
 })->name('teacher');
 
 //Route::get('/', [Pagination::class, 'vkr']);
 
 Route::get('/{lang}', function ($lang) {
     App::setlocale($lang);
-    return view('home');
+    return view('layouts.app');
 });
 
 
-Route::view('home', 'home')->middleware('auth');
+//Route::view('home.home', 'home')->middleware('auth');
 Route::post('/authorization', [AuthorizationController::class, 'submitAuth'])->name('authorization');
+
+//-----------------------new
+Route::get('/vkr/{id_vkr}', [VkrController::class, 'showOneVkr'])->name('vkr-one');
+Route::get('/vkr/add', [AddVkrController::class, 'create'])->name('vkr-create');
+Route::post('/vkr/add/submit', [AddVkrController::class, 'addVkr'])->name('vkr-addForm');
+//Route::resource('vkrs', VkrController::class);
+//Route::get('/vkrs/', [VkrController::class, 'index']);
+
+/*Route::group(['prefix' => 'teacher'], function() {
+    Route::view('/', 'user.teacherView');
+    Route::get('vkr/create/{id}', [VkrController::class, 'create']);
+    Route::resource('vkrs', 'VkrController')->except('create');
+});*/
